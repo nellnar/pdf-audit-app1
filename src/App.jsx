@@ -48,6 +48,7 @@ export default function App() {
   return (
     <div className="p-6 max-w-3xl mx-auto">
       <h1 className="text-xl font-bold mb-4">🧾 N/A Checklist Manager</h1>
+<PdfUploader onFileSelect={(file) => console.log("PDF selected:", file)} />
       <div className="mb-6">
         <label className="flex items-center gap-2">
           <input
