@@ -71,7 +71,7 @@ export default function App() {
       </div>
     </div>
   );
-<PdfUploader onFileSelect={(file) => console.log("PDF selected:", file)} />
+
 
 
 
