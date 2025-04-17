@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db } from './firebase';
-
+import PdfUploader from './components/PdfUploader';
 export default function App() {
   const [selectedSet, setSelectedSet] = useState('default');
   const [autoSelectEnabled, setAutoSelectEnabled] = useState(true);
@@ -48,7 +48,6 @@ export default function App() {
   return (
     <div className="p-6 max-w-3xl mx-auto">
       <h1 className="text-xl font-bold mb-4">🧾 N/A Checklist Manager</h1>
-
       <div className="mb-6">
         <label className="flex items-center gap-2">
           <input
