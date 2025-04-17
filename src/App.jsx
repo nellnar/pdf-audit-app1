@@ -46,33 +46,36 @@ export default function App() {
   const naChecklist = naChecklistSets[selectedSet] || [];
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
-      <h1 className="text-xl font-bold mb-4">🧾 N/A Checklist Manager</h1>
-<PdfUploader onFileSelect={(file) => console.log("PDF selected:", file)} />
-      <div className="mb-6">
-        <label className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={autoSelectEnabled}
-            onChange={() => setAutoSelectEnabled(!autoSelectEnabled)}
-          />
-          <span className="text-sm">Enable auto-select checklist based on filename</span>
-        </label>
-        <div className="text-xs text-gray-600 mt-1">
+  <div className="p-6 max-w-3xl mx-auto">
+    <h1 className="text-xl font-bold mb-4">🧾 N/A Checklist Manager</h1>
+
+    <div className="mb-6 border p-4 rounded shadow bg-gray-50">
+      <PdfUploader onFileSelect={(file) => console.log("PDF selected:", file)} />
+    </div>
+
+    <div className="mb-6">
+      <label className="flex items-center gap-2">
+        <input
+          type="checkbox"
+          checked={autoSelectEnabled}
+          onChange={() => setAutoSelectEnabled(!autoSelectEnabled)}
+        />
+        <span className="text-sm">
+          Enable auto-select checklist based on filename
+        </span>
+      </label>
+
+      <div className="text-xs text-gray-600 mt-1">
+        <p>
+          Currently applied set: <strong>{selectedSet}</strong>
+        </p>
+        {autoSelectedSet && autoSelectEnabled && (
           <p>
-            Currently applied set: <strong>{selectedSet}</strong>
+            Last auto-detected set: <strong>{autoSelectedSet}</strong>
           </p>
-          {autoSelectedSet && autoSelectEnabled && (
-            <p>
-              Last auto-detected set: <strong>{autoSelectedSet}</strong>
-            </p>
-          )}
-        </div>
+        )}
       </div>
     </div>
-  );
-
-
-
-
+  </div>
+);
 
