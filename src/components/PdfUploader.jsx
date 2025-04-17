@@ -1,25 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const PdfUploader = ({ onFileSelect }) => {
-  const [selectedFile, setSelectedFile] = useState(null);
-
-  const handleChange = (e) => {
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file && file.type === 'application/pdf') {
-      setSelectedFile(file);
       onFileSelect(file);
     } else {
-      alert("Please select a valid PDF file.");
+      alert('Please upload a valid PDF file.');
     }
   };
 
   return (
-    <div className="my-4 p-4 border rounded">
-      <h2 className="font-bold text-lg mb-2">📄 Upload a PDF Audit</h2>
-      <input type="file" accept="application/pdf" onChange={handleChange} />
-      {selectedFile && <p className="mt-2 text-sm">Selected: {selectedFile.name}</p>}
+    <div className="mb-4">
+      <label className="block font-medium">Upload PDF:</label>
+      <input type="file" accept="application/pdf" onChange={handleFileChange} />
     </div>
   );
 };
 
 export default PdfUploader;
+
